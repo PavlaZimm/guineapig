@@ -1,0 +1,121 @@
+@import "tailwindcss";
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  background: linear-gradient(135deg, #fce4ec 0%, #f8bbd0 50%, #f48fb1 100%);
+  min-height: 100vh;
+  font-family: 'Segoe UI', system-ui, sans-serif;
+}
+
+@keyframes idle-bounce {
+  0%, 100% { transform: translateY(0px) scaleY(1); }
+  50% { transform: translateY(-8px) scaleY(0.95); }
+}
+
+@keyframes eat {
+  0%, 100% { transform: translateX(0) rotate(0deg); }
+  25% { transform: translateX(-4px) rotate(-5deg); }
+  75% { transform: translateX(4px) rotate(5deg); }
+}
+
+@keyframes play {
+  0%, 100% { transform: translateX(0) rotate(0deg) scaleX(1); }
+  25% { transform: translateX(-20px) rotate(-10deg) scaleX(-1); }
+  75% { transform: translateX(20px) rotate(10deg) scaleX(1); }
+}
+
+@keyframes sleep {
+  0%, 100% { transform: translateY(0px) rotate(-3deg) scaleY(0.9); }
+  50% { transform: translateY(5px) rotate(3deg) scaleY(0.85); }
+}
+
+@keyframes clean {
+  0%, 100% { transform: rotate(0deg); }
+  25% { transform: rotate(-15deg) translateX(-5px); }
+  75% { transform: rotate(15deg) translateX(5px); }
+}
+
+@keyframes pet {
+  0%, 100% { transform: scaleX(1) scaleY(1); }
+  50% { transform: scaleX(1.05) scaleY(0.97); }
+}
+
+@keyframes hearts {
+  0% { opacity: 0; transform: translateY(0) scale(0.5); }
+  50% { opacity: 1; transform: translateY(-30px) scale(1); }
+  100% { opacity: 0; transform: translateY(-60px) scale(0.8); }
+}
+
+@keyframes speech-bubble {
+  0% { opacity: 0; transform: scale(0.8) translateY(5px); }
+  100% { opacity: 1; transform: scale(1) translateY(0); }
+}
+
+@keyframes wiggle {
+  0%, 100% { transform: rotate(0deg); }
+  25% { transform: rotate(-8deg); }
+  75% { transform: rotate(8deg); }
+}
+
+@keyframes float-in {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes sparkle {
+  0%, 100% { opacity: 0; transform: scale(0); }
+  50% { opacity: 1; transform: scale(1); }
+}
+
+@keyframes danger-pulse {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(239, 68, 68, 0.4); }
+  50% { box-shadow: 0 0 0 8px rgba(239, 68, 68, 0); }
+}
+
+.animate-idle { animation: idle-bounce 2s ease-in-out infinite; }
+.animate-eat { animation: eat 0.4s ease-in-out infinite; }
+.animate-play { animation: play 0.6s ease-in-out infinite; }
+.animate-sleep { animation: sleep 3s ease-in-out infinite; }
+.animate-clean { animation: clean 0.5s ease-in-out infinite; }
+.animate-pet { animation: pet 0.3s ease-in-out infinite; }
+.animate-wiggle { animation: wiggle 0.4s ease-in-out 3; }
+.animate-float-in { animation: float-in 0.4s ease-out forwards; }
+.animate-danger-pulse { animation: danger-pulse 1s ease-in-out infinite; }
+
+.stat-bar-fill {
+  transition: width 0.5s ease-in-out;
+}
+
+.btn-action {
+  transition: all 0.15s ease;
+  user-select: none;
+}
+.btn-action:hover:not(:disabled) {
+  transform: translateY(-2px);
+  filter: brightness(1.05);
+}
+.btn-action:active:not(:disabled) {
+  transform: translateY(0px) scale(0.96);
+}
+.btn-action:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.guinea-pig-container {
+  filter: drop-shadow(0 4px 8px rgba(0,0,0,0.15));
+}
+
+.food-item {
+  transition: transform 0.15s ease;
+  cursor: pointer;
+}
+.food-item:hover {
+  transform: scale(1.2);
+}
+.food-item:active {
+  transform: scale(0.9);
+}
